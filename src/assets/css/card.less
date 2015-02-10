@@ -1,0 +1,74 @@
+@import "mixins.less";
+.card {
+	width: 140px;
+	height: 200px;
+	float: left;
+	border: 1px solid #aaa;
+	border-radius: 5px;
+	margin: 5px;
+	position: relative;
+
+	-webkit-transform-style: preserve-3d;           
+	-webkit-transition: all 0.2s linear;  
+
+	&.card-suit-diamonds,
+	&.card-suit-hearts {
+		color: red;
+	}
+	&.card-suit-spades,
+	&.card-suit-clubs {
+		color: black;
+	}
+
+	&.card-flipped {
+		.rotateY(180deg);
+	}
+
+	.card-corner {
+		position: absolute;
+		top: 0;
+		left: 0;
+		font-size: 24px;
+
+		&.bottom {
+			bottom: 0;
+			right: 0;
+			.rotate(180deg);
+		}
+
+		&:after {
+			position: relative;
+			left: 5px;
+		}
+	}
+
+	.face {
+		position: absolute;
+		top: 5px;
+		left: 5px;
+		width: calc(~"100% - 10px");
+		height: calc(~"100% - 10px");
+		backface-visibility: hidden;
+
+		&.back {
+			.rotateY(180deg);
+			background: #f23030; /* Old browsers */
+			/*background: -moz-linear-gradient(-45deg, #f23030 0%, #ffffff 1%);*/
+			/*background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#f23030), color-stop(1%,#ffffff)); */
+			background: repeating-linear-gradient(-45deg, #f23030 0%,#ffffff 1%); /* Chrome10+,Safari5.1+ */
+		}
+	}
+
+	&.card-suit-diamonds .card-corner:after {
+		content: '♦';
+	}
+	&.card-suit-hearts .card-corner:after {
+		content: '♥';
+	}
+	&.card-suit-spades .card-corner:after {
+		content: '♠';
+	}
+	&.card-suit-clubs .card-corner:after {
+		content: '♣';
+	}
+}
