@@ -26,7 +26,7 @@
 
 	holder.on('click', '.card', function (ev) {
 		var card = $(ev.currentTarget);
-		card.toggleClass("card-flipped");
+		card.toggleClass("face-up");
 	});
 
 	app.game = {};

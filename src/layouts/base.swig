@@ -14,15 +14,23 @@
 		<script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/mustache.js/0.8.1/mustache.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
 
 		<script>
-			var app = {};
+			var app = {
+				models: {},
+				collections: {}
+			};
 		</script>
 
 		<!-- build:js /js/all.min.js -->
 		<script type="text/javascript" src="/js/common.js"></script>
 		<script type="text/javascript" src="/js/deck.js"></script>
-		<script type="text/javascript" src="/js/game.js"></script>
+
+		<script type="text/javascript" src="/js/models/cardModel.js"></script>
+		<script type="text/javascript" src="/js/models/playerModel.js"></script>
+		<script type="text/javascript" src="/js/models/gameModel.js"></script>
+		<!-- <script type="text/javascript" src="/js/game.js"></script> -->
 		<script type="text/javascript" src="/js/main.js"></script>
 		<!-- endbuild -->
 
