@@ -19,7 +19,8 @@
 		<script>
 			var app = {
 				models: {},
-				collections: {}
+				collections: {},
+				viewstate: new Backbone.Model()
 			};
 		</script>
 

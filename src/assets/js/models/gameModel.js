@@ -23,6 +23,8 @@
 			this.deck = o.deck;
 			this.pileOne = new coll.cardCollection();
 			this.pileTwo = new coll.cardCollection();
+			this.discardOne = new coll.cardCollection();
+			this.discardTwo = new coll.cardCollection();
 		}
 	});
 

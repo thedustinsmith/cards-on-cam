@@ -7,14 +7,15 @@ title: 'Home Page'
 
 	<div id="game-view">
 		<button class="btn-deal">Deal</button>
-		<div class="game-piles">
+		<button class="btn-flip">Flip</button>
+		<div class="game-piles grid">
 			<div id="pile1" class="game-pile">
-				<div class="pile card-pile"></div>
-				<div class="discard"></div>
+				<div class="col-1-4"><div class="card-pile draw"></div></div>
+				<div class="col-1-4"><div class="card-pile discard "></div></div>
 			</div>
 			<div id="pile2" class="game-pile">
-				<div class="pile card-pile"></div>
-				<div class="discard"></div>
+				<div class="col-1-4"><div class="card-pile discard"></div></div>
+				<div class="col-1-4"><div class="card-pile draw"></div></div>
 			</div>
 		</div>
 		<div class="player-piles">
@@ -27,7 +28,7 @@ title: 'Home Page'
 
 
 	<script id="card-template" type="text/template">
-		<div class="card card-suit-{{suitName}}">
+		<div class="card card-suit-{{suitName}}" data-id="{{id}}">
 			<div class="face front">
 				<div class="face-inner">
 				<div class="card-corner">
@@ -59,6 +60,5 @@ title: 'Home Page'
 
 {% block scripts %}
 <script>
-$("blockquote").css("color", "#bada55");
 </script>
 {% endblock %}

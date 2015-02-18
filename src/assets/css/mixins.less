@@ -160,6 +160,12 @@
 	-ms-transform-origin:     @x @y;
 	-o-transform-origin:      @x @y;
 }
+.transform-style (@params) {
+	-webkit-transform-style: @params;
+	   -moz-transform-style: @params;
+	    -ms-transform-style: @params;
+	     -o-transform-style: @params;
+}
 .calcHeight (@params) {
 	height: calc(@params);
 	height: -webkit-calc(@params);

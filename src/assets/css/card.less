@@ -8,9 +8,11 @@
 	margin: 5px;
 	position: relative;
 	background: white;
+	cursor: pointer;
+	.userSelectNone();
 
-	-webkit-transform-style: preserve-3d;           
-	-webkit-transition: all 0.2s linear;  
+	.transition(transform 0.2s linear);
+	.transform-style(preserve-3d);  
 
 	&.card-suit-diamonds,
 	&.card-suit-hearts {
@@ -23,6 +25,10 @@
 
 	&.face-up {
 		.rotateY(180deg);
+	}
+
+	&.selected {
+		border: 2px solid rgb(54, 157, 244);
 	}
 
 	.card-corner {
