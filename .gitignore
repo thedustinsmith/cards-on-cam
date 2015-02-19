@@ -2,3 +2,6 @@ npm-debug.log
 node_modules/
 dist/
 .tmp/
+
+# Mac desktop service store files
+.DS_Store

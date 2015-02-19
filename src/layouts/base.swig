@@ -20,11 +20,14 @@
 			var app = {
 				models: {},
 				collections: {},
-				viewstate: new Backbone.Model()
+				viewstate: new Backbone.Model(),
+				fbRoot: 'https://webcards-dev.firebaseio.com/'
 			};
 		</script>
 
 		<!-- build:js /js/all.min.js -->
+		<script type="text/javascript" src="/js/plugins/firebase.js"></script>
+		<script type="text/javascript" src="/js/plugins/backbonefire.js"></script>
 		<script type="text/javascript" src="/js/common.js"></script>
 		<script type="text/javascript" src="/js/deck.js"></script>
 

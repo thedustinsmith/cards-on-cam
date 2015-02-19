@@ -11,9 +11,12 @@
 	// });
 	var deck = new c.cardCollection(app.deck.cards.clone().shuffle());
 	var game = new m.gameModel({
-		deck: deck
+		deck: deck,
+		id: 'firstgame'
 	});
-
+	game.fetch();
+	game.set('name', 'firstgame');
+	game.save();
 	app.game = game;
 
 	var playerView = Backbone.View.extend({
@@ -139,6 +142,7 @@
 			this.$p2Draw.html(this.game.pileTwo.map(function (c) {
 				return Mustache.render(cardTemplate, c.toJSON()); 
 			}));
+			log(this.game);
 		},
 
 		dealGame: function (ev) {
@@ -147,7 +151,8 @@
 			this.p1view.setHand();
 			this.p2view.setHand();
 
-			this.renderPiles();
+			this.game.set('dealt', true);
+			this.game.save();
 		},
 
 		onDiscard: function (pile, card, coll) {
@@ -181,11 +186,13 @@
 			this.$p2Discard = p2.find('.discard');
 			this.$p2Discard.data('pile', this.game.discardTwo);
 
-			this.game.discardOne.on('add', _.bind(this.onDiscard, this, this.$p1Discard));
-			this.game.discardTwo.on('add', _.bind(this.onDiscard, this, this.$p2Discard));
+			this.listenTo(this.game.discardOne, 'add', _.bind(this.onDiscard, this, this.$p1Discard));
+			this.listenTo(this.game.discardTwo, 'add', _.bind(this.onDiscard, this, this.$p2Discard));
 
-			this.game.pileOne.on('remove', _.bind(this.onDraw, this, this.$p1Draw));
-			this.game.pileTwo.on('remove', _.bind(this.onDraw, this, this.$p2Draw));
+			this.listenTo(this.game.pileOne, 'remove', _.bind(this.onDraw, this, this.$p1Draw));
+			this.listenTo(this.game.pileTwo, 'remove', _.bind(this.onDraw, this, this.$p2Draw));
+
+			this.listenTo(this.game, 'change:dealt', _.bind(this.renderPiles, this));
 		}
 	}))({
 		el: '#game-view',

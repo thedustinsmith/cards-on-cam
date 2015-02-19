@@ -42,9 +42,7 @@
 		},
 
 		initialize: function (o) {
-			this.suit = o.suit;
-			this.val = o.val;
-			this.suitName = o.suitName;
+			
 		}
 	});
 
